@@ -165,6 +165,13 @@ export interface ConnectionOptions {
     fallbackToDefaultDb?: boolean;
 
     /**
+     * If true, SET ANSI_NULL_DFLT_ON ON will be set in the initial sql.
+     * This means new columns will be nullable by default.
+     * See the T-SQL documentation for more details. (Default: true).
+     */
+    enableAnsiNullDefault?: boolean;
+
+    /**
      * The number of milliseconds before the attempt to connect is considered failed (default: 15000).
      */
     connectTimeout?: number;
@@ -267,6 +274,83 @@ export interface ConnectionOptions {
      * Take this from tedious.TDS_VERSION.7_4 .
      */
     tdsVersion?: number;
+
+    /**
+     * Time between connection retries in ms (Detfault: 500ms)
+     */
+    connectionRetryInterval?: number;
+
+    /**
+     * (Default: true)
+     */
+    enableAnsiNull?: boolean;
+
+    /**
+     * (Default: true)
+     */
+    enableAnsiPadding?: boolean;
+
+    /**
+     * (Default: true)
+     */
+    enableAnsiWarnings?: boolean;
+
+    /**
+     * (Default: false)
+     */
+    enableArithAbort?: boolean;
+
+    /**
+     * (Default: true)
+     */
+    enableConcatNullYieldsNull?: boolean;
+
+    /**
+     * (Default: false)
+     */
+    enableCursorCloseOnCommit?: boolean;
+
+    /**
+     * (Default: false)
+     */
+    enableImplicitTransactions?: boolean;
+
+    /**
+     * (Default: false)
+     */
+    enableNumericRoundabort?: boolean;
+
+    /**
+     * (Default: true)
+     */
+    enableQuotedIdentifier?: boolean;
+
+    /**
+     * (Default: 'us_english')
+     */
+    language?: string;
+
+    /**
+     * (Default: 3)
+     */
+    maxRetriesOnTransientErrors?: number;
+
+    /**
+     * (Default: false)
+     */
+    multiSubnetFailover?: boolean;
+
+    /**
+     * (Default: '2147483647'
+     */
+    textsize?: number;
+
+    /**
+     * (Default: true)
+     */
+    trustServerCertificate?: boolean;
+
+
 }
 
 export interface ConnectionConfig {
